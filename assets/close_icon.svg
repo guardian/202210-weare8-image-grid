@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="65px" height="65px" viewbox="0 0 65 65" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <g id="Group-8">
+    <path d="M32.233 0C14.431 0 0 14.432 0 32.233C0 50.032 14.431 64.466 32.233 64.466C50.035 64.466 64.465 50.032 64.465 32.233C64.465 14.432 50.035 0 32.233 0" transform="translate(0.0001 -0.0002)" id="Fill-1" fill="#FCC242" fill-rule="evenodd" stroke="none" />
+    <path d="M0 22.793L1.555 24.348L13.47 13.467L24.346 1.554L22.793 0L10.878 10.878L0 22.793Z" transform="translate(20.0602 19.9294)" id="Fill-4" fill="#ffffff" fill-rule="evenodd" stroke="none" />
+    <path d="M22.793 24.346L24.348 22.791L13.469 10.876L1.554 0L0 1.553L10.878 13.465L22.793 24.346Z" transform="translate(20.0602 19.9301)" id="Fill-6" fill="#ffffff" fill-rule="evenodd" stroke="none" />
+  </g>
+</svg>

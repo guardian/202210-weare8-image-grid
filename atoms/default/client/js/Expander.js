@@ -2,7 +2,22 @@ import gsap from "gsap/gsap-core";
 import { Sine, Back } from "gsap/gsap-core";
 import { Component, render, h, Fragment } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
+import { IconClose } from "./icons";
 import AudioPlayer from "/shared/js/AudioPlayer";
+
+
+const VideoPlayer = (props) => {
+
+    const ref = useRef();
+
+    useEffect(()=>{
+        ref.current.pause();
+    },[props.stopPlay])
+
+    return (
+        <video src={`<%= path %>/${props.data.video}.mp4`} controls ref={ref} />
+    )
+}
 
 
 const Expander = (props) => {
@@ -59,21 +74,34 @@ const Expander = (props) => {
                 ref={closeRef}
                 ariaLabel="close panel"
                 ariaRole="button"
-                ></a>
-            {props.data.type.indexOf('image') >= 0 && props.data.audio == '' &&
-            <div className="container" dangerouslySetInnerHTML={{__html: props.data.expander}}>
+                >
+                    <IconClose />
+                </a>
+            {props.data.type.indexOf('image') >= 0 && props.data.audio == '' && props.data.video == '' &&
+            <div className={`container ${(!props.data.audio && !props.data.video)? 'text-only' :'has-media'}`}  
+                dangerouslySetInnerHTML={{__html: props.data.expander}}>
                 
             </div>
             }
             {props.data.type.indexOf('image') >= 0 && props.data.audio != '' &&
-            <div className="container flex-col align-center">
+            <div className={`container ${(!props.data.audio && !props.data.video)? 'text-only' :'has-media'} flex-col align-center`}>
                 <AudioPlayer stopPlay={stopPlay} src={`<%= path %>/${props.data.audio}.mp3`} />
                 <div className="pt-4" dangerouslySetInnerHTML={{__html: props.data.expander}} />
                 
             </div>
             }
+            {props.data.type.indexOf('image') >= 0 && props.data.video != '' &&
+            <div className={`container ${(!props.data.audio && !props.data.video)? 'text-only' :'has-media'} flex-col align-center`}>
+                
+                <div class="vid">
+                    <VideoPlayer stopPlay={stopPlay} data={{...props.data}} />
+                </div>
+                <div className="pt-4" dangerouslySetInnerHTML={{__html: props.data.expander}} />
+                
+            </div>
+            }
             {props.data.type === 'audio' && 
-            <div className="container d-flex d-center">
+            <div className={`container ${(!props.data.audio && !props.data.video)? 'text-only' :'has-media'} d-flex d-center`}>
                 <AudioPlayer stopPlay={stopPlay} title={props.data.playerTitle} src={`<%= path %>/${props.data.audio}.mp3`} subs={`<%= path %>/${props.data.audio}.vtt`} />
             </div>
             }

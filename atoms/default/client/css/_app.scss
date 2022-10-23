@@ -19,6 +19,7 @@ figure.element {
 }
 
 #Glabs {
+    --primary-color: #FCEB3C;
     background-color: #1C1717;
     color: white;
     a {
@@ -92,6 +93,11 @@ figure.element {
         width: 140px;
     }
 
+    .about a{
+        display: block;
+        padding-top: 1rem;
+        font-size: 12/16 + rem;
+    }
     .social-share {
         border-top: 1px dashed #D8D8D8;
         white-space: nowrap;
@@ -130,7 +136,7 @@ figure.element {
     background-size: cover;
     height: 60vh;
     background-position: 29% 50%;
-    background-color: #FCEB3C;
+    background-color: var(--primary-color);
     @include mq(tablet) {
         background-position: 50% 0;
         height: 70vh;
@@ -139,6 +145,16 @@ figure.element {
     }
 }
 .header {
+
+    .hubtab {
+        display: inline-block;
+        margin: 0 0 2rem;
+        background-color: #fff;
+        padding: 0.7rem 1rem;
+        p, a {
+            color: black !important;
+        }
+    }
     padding: 2rem;
     @include mq(tablet) {
         display: flex;
@@ -148,7 +164,9 @@ figure.element {
         }
     }
 }
-
+h1 {
+    color: var(--primary-color);
+}
 h2 {
     font-size: 1.5em;
     line-height: 1.3;
@@ -213,6 +231,19 @@ h2 {
                 &:active, &:visited {
                     text-decoration: none;
                     color: white;
+                }
+
+                h2 {
+                    display: inline-flex;
+                    align-items: center;
+                    background: var(--primary-color);
+                    color: #212129;
+                    padding: 0.2rem 0.2rem 0.2rem 1rem;
+                    border-radius: 60px;
+
+                    svg {
+                        margin-left: 1rem;
+                    }
                 }
             }
 
@@ -412,8 +443,8 @@ h2 {
                 position: absolute;
                 top: 1rem;
                 right: 1rem;
-                background: url('<%= path %>/close_icon.svg') no-repeat 50%;
-                background-size: contain;
+                // background: url('<%= path %>/close_icon.svg') no-repeat 50%;
+                // background-size: contain;
                 width: 65px;
                 height: 65px;
                 // transition: transform 0.3s ease-out;
@@ -429,8 +460,9 @@ h2 {
                 padding-top: 6rem;
                 @include mq(tablet) {
                     padding: 2rem;
-                    padding-top: 6rem;
-
+                    &.text-only {
+                        padding-top: 6rem;
+                    }
                 }
             }
             h2 {
@@ -496,9 +528,9 @@ h2 {
         }
         .w-50 {
             width: 100%;
-            h2 {
-                width: 60%;
-            }
+            // h2 {
+            //     width: 60%;
+            // }
         }
         @include mq(tablet) {
 
@@ -507,6 +539,10 @@ h2 {
             }
         }
 
+        video {
+            margin-top: 2rem;
+            max-width: 100%;
+        }
 
     }
 
@@ -546,13 +582,21 @@ h2 {
 }
 .footer {
     padding-bottom: 2rem;
+    a, p {
+        font-size: 1rem;
+        font-weight: bold;
+        font-style: italic;
+    }
     a {
-        color: #ECAF84 !important;
+        color: var(--primary-color) !important;
     }
     @include mq(tablet) {
         .footer-content {
             width: 80%;
         }
+    }
+    .grid-cta {
+        color: var(--primary-color);
     }
 }
 
@@ -628,3 +672,4 @@ h2 {
         flex-basis: 49%;
     }
 }
+

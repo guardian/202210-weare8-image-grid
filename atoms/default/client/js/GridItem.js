@@ -2,11 +2,21 @@ import gsap from "gsap/gsap-core";
 import { Component, render, h, Fragment } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
 import Expander from "./Expander";
+import { IconSound, IconText, IconVideo } from "./icons";
 
 
 const GridItem = (props) => {
     const expanderRef = useRef(null);
 
+    const getIcon = () => {
+        if (props.data.audio) {
+            return <IconSound />;
+        } else if (props.data.video) {
+            return <IconVideo />;
+        } else {
+            return <IconText />
+        }
+    }
     const getTileBody = () => {
         switch (props.data.type) {
             case 'image':
@@ -15,7 +25,9 @@ const GridItem = (props) => {
                     onMouseLeave={handleScaleDown}
                     onMouseOver={handleScaleUp} 
                     className="bg container" style={`background-image: linear-gradient(0deg, #0009, transparent 65%), url(<%= path %>/${props.data.bg})`} href="#">
-                        <h2>{props.data.content}</h2>
+                        <div>
+                            <h2>{props.data.content} {getIcon()}</h2>
+                        </div>
                     </a>
                 )
             case 'imageRight':
@@ -26,7 +38,9 @@ const GridItem = (props) => {
                     className="bg container" href="#">
                         <div dangerouslySetInnerHTML={{__html: props.data.content}}></div>
                         <div style={`background-image: linear-gradient(0deg, #0009, transparent 65%), url(<%= path %>/${props.data.bg})`} >
-                            <h2>{props.data.playerTitle}</h2>
+                            <div>
+                                <h2>{props.data.playerTitle} {getIcon()}</h2>
+                            </div>                            
                         </div>
                         
                     </a>
@@ -38,7 +52,9 @@ const GridItem = (props) => {
                     onMouseOver={handleScaleUp} 
                     className="bg container" href="#">
                         <div style={`background-image: linear-gradient(0deg, #0009, transparent 65%), url(<%= path %>/${props.data.bg})`} >
-                            <h2>{props.data.playerTitle}</h2>
+                            <div>
+                                <h2>{props.data.playerTitle} {getIcon()}</h2>
+                            </div>
                         </div>
                         <div dangerouslySetInnerHTML={{__html: props.data.content}}></div>
                         
@@ -63,7 +79,10 @@ const GridItem = (props) => {
 
     return (
         <Fragment>
-            <li className={`${props.className} tile-type-${props.data.type}`} {...props} 
+            <li className={`${props.className} 
+                tile-type-${props.data.type}
+                ${(!props.data.audio && !props.data.video)? 'text-only' :'has-media'}
+                `} {...props} 
             >
                 {getTileBody()}
             </li>

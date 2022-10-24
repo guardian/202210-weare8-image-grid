@@ -25,6 +25,12 @@ figure.element {
     a {
         color: white;
     }
+    p {
+        margin-block-end: 1rem;
+        margin-block-start: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
 }
 .clearfix {
     &::after {
@@ -110,6 +116,12 @@ figure.element {
             margin: 4px;
         }
     }
+
+    @include mq(desktop) {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }
 
 .audio-player {
@@ -161,6 +173,12 @@ figure.element {
         header {
 
             margin-right: 5rem;
+        }
+    }
+    @include mq(desktop) {
+        header {
+            position: relative;
+            padding-left: 12rem;
         }
     }
 }
@@ -534,7 +552,7 @@ h2 {
             .text-cols-2 {
                 columns: 2;
                 >P:first-child {
-                    margin-top: 0;
+                    margin-top: 0 !important;
                 }
             }
 
@@ -649,6 +667,9 @@ h2 {
     }
     .grid-cta {
         color: var(--primary-color);
+        a {
+            text-decoration: underline;
+        }
     }
 }
 

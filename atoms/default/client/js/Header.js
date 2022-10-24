@@ -21,16 +21,16 @@ const Header  = (props) => {
                         </div>
                         <h1>{data.headline}</h1>
                         <div dangerouslySetInnerHTML={{__html:data.standfirst}}></div>
-                        <div dangerouslySetInnerHTML={{__html:data.intro}}></div>
-                    </header>
                     <div className='client'>
                         <p>Paid for by</p>
                         <a href={data.logoLink} target="_blank" title="Dairy Australia"><img src="<%= path %>/brand_logo.png" width="120" alt="" /></a>
                         <div className="about" dangerouslySetInnerHTML={{__html:data.aboutLink}} />
                         <SocialBar url={shareUrl} title={data.shareTitle} />
                     </div>
+                        <div dangerouslySetInnerHTML={{__html:data.intro}}></div>
+                    </header>
             </div>
-            <div className="hr"></div>
+            
         </div>
     </Fragment>
     )

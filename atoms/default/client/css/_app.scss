@@ -20,7 +20,7 @@ figure.element {
 
 #Glabs {
     --primary-color: #FCEB3C;
-    background-color: #1C1717;
+    background-color: #292152;
     color: white;
     a {
         color: white;
@@ -166,6 +166,8 @@ figure.element {
 }
 h1 {
     color: var(--primary-color);
+    font-family: "Display Sans";
+    font-weight: 700;
 }
 h2 {
     font-size: 1.5em;
@@ -276,6 +278,7 @@ h2 {
             //         }
             //     }
             // }
+
             &.image {
                 overflow: hidden;
                 .bg {
@@ -339,7 +342,13 @@ h2 {
                             border: 1px solid #292152;
                             border-left: none;
                             border-right: none;
-
+                            padding: 1.5rem 0;
+                            p:first-child {
+                                margin-top: 0;
+                            }
+                            p:last-child {
+                                margin-bottom: 0;
+                            }
                         }                         
                     }
                     > div:nth-child(2) {
@@ -398,7 +407,13 @@ h2 {
                             border: 1px solid #292152;
                             border-left: none;
                             border-right: none;
-
+                            padding: 1.5rem 0;
+                            p:first-child {
+                                margin-top: 0;
+                            }
+                            p:last-child {
+                                margin-bottom: 0;
+                            }
                         }
                     }
 
@@ -416,6 +431,43 @@ h2 {
                             min-height: 43vh;
                             width: 100%;
                         }
+                    }
+                }
+            }
+
+            &.quote {
+                background-color: #FFF8B1;
+                color: #292152;
+                @include mq($until: desktop) {
+                    height: auto;
+                    min-height: auto;
+                }
+                .container {
+                    display: flex;
+                    align-items: center;
+                    height: 100%;
+                    p {
+                        font-weight: 600;
+                        font-size: 1.4rem;
+                        line-height: 1.3;
+                    }
+                    strong {
+                        font-weight: 800;
+                    }
+                    padding: 2.5rem 1rem;
+                    // margin: 2.5rem 1rem;
+                }
+                .container > div:first-of-type {
+
+                    border: 1px solid #292152;
+                    border-left: none;
+                    border-right: none;
+                    padding: 1.5rem 0;                    
+                    p:first-child {
+                        margin-top: 0;
+                    }
+                    p:last-child {
+                        margin-bottom: 0;
                     }
                 }
             }

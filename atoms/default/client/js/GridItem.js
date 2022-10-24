@@ -30,6 +30,12 @@ const GridItem = (props) => {
                         </div>
                     </a>
                 )
+            case 'quote':
+                return (
+                    <div className="container">
+                        <div dangerouslySetInnerHTML={{__html: props.data.content}}></div>
+                    </div>
+                )
             case 'imageRight':
                 return (
                     <a ref={elRef} 
